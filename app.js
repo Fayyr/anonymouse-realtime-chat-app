@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 const dateTime = require("simple-datetime-formater");
-const bodyParser = require("body-parser");
+
 const chatRouter = require("./route/chatroute");
 const loginRouter = require("./route/loginRoute");
 
@@ -12,11 +12,12 @@ const http = require("http").Server(app);
 // require the socket.io module
 const io = require("socket.io");
 
-const port = 5000;
+const port = 5005;
 
-//bodyparser middleware
-app.use(bodyParser.json());
-
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 //routes
 app.use("/chats", chatRouter);
 app.use("/login", loginRouter);
