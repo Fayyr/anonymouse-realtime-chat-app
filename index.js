@@ -12,7 +12,7 @@ const http = require("http").Server(app);
 // require the socket.io module
 const io = require("socket.io");
 
-var port = server.listen(process.env.PORT || 3000);
+const port = server.listen(process.env.PORT || 8080);
 
 app.use(express.json());
 app.use(express.urlencoded({
